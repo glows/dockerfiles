@@ -9,7 +9,7 @@ docker create \
   -v ~/library:/config \
   -v ~/tvshows:/data/tvshows \
   -v ~/movies:/data/movies \
-  -v ~/myhhd:/data/myhhd \
+  -v ~/myhhd:/data/myhhdgit  \
   --restart unless-stopped \
   linuxserver/emby
 
