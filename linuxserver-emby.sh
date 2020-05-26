@@ -6,10 +6,10 @@ docker create \
   -e UMASK_SET=022 `#optional` \
   -p 8096:8096 \
   -p 8920:8920 `#optional` \
-  -v ~/library:/config \
-  -v ~/tvshows:/data/tvshows \
-  -v ~/movies:/data/movies \
-  -v ~/myhhd:/data/myhhdgit  \
+  -v /home/pi/library:/config \
+  -v /home/pi/tvshows:/data/tvshows \
+  -v /home/pi/movies:/data/movies \
+  -v /mnt/myhhd:/data/myhhdgit  \
   --restart unless-stopped \
   linuxserver/emby
 
