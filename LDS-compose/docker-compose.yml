@@ -1,0 +1,67 @@
+---
+version: "2.1"
+    #勿忘修改文件目录映射
+services:
+    sonarr:
+      image: linuxserver/sonarr
+      container_name: sonarr
+      environment:
+        - PUID=1000
+        - PGID=1000
+        - TZ=Europe/London
+        - UMASK_SET=022 #optional
+      volumes:
+        - /path/to/data:/config
+        - /path/to/tvseries:/tv
+        - /path/to/downloadclient-downloads:/downloads
+      ports:
+        - 8989:8989
+      restart: unless-stopped
+  
+
+    radarr:
+        image: linuxserver/radarr
+        container_name: radarr
+        environment:
+          - PUID=1000
+          - PGID=1000
+          - TZ=Europe/London
+          - UMASK_SET=022 #optional
+        volumes:
+          - /path/to/data:/config
+          - /path/to/movies:/movies
+          - /path/to/downloadclient-downloads:/downloads
+        ports:
+          - 7878:7878
+        restart: unless-stopped
+
+
+        nzbget:
+            image: linuxserver/nzbget
+            container_name: nzbget
+            environment:
+              - PUID=1000
+              - PGID=1000
+              - TZ=Europe/London
+            volumes:
+              - path to data:/config
+              - path/to/downloads:/downloads
+            ports:
+              - 6789:6789
+            restart: unless-stopped
+        
+
+        jackett:
+            image: linuxserver/jackett
+            container_name: jackett
+            environment:
+              - PUID=1000
+              - PGID=1000
+              - TZ=Europe/London
+              - RUN_OPTS=run options here #optional
+            volumes:
+              - path to data:/config
+              - path to blackhole:/downloads
+            ports:
+              - 9117:9117
+            restart: unless-stopped
