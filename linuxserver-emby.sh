@@ -9,7 +9,7 @@ docker create \
   -v /home/pi/library:/config \
   -v /home/pi/tvshows:/data/tvshows \
   -v /home/pi/movies:/data/movies \
-  -v /mnt/myhhd:/data/myhhdgit  \
+  -v /srv/dev-disk-by-label-OS:/data/myhhdgit  \
   --restart unless-stopped \
   linuxserver/emby
 

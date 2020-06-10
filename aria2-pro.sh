@@ -5,11 +5,11 @@ docker run -d \
     --restart unless-stopped \
     --log-opt max-size=1m \
     --network host \
-    -e PUID=$UID \
-    -e PGID=$GID \
-    -e RPC_SECRET=<TOKEN> \
+    -e PUID=1000 \
+    -e PGID=27 \
+    -e RPC_SECRET=hello \
     -e RPC_PORT=6800 \
     -e LISTEN_PORT=6888 \
-    -v ~/aria2-config:/config \
-    -v ~/aria2-downloads:/downloads \
+    -v /home/pi/aria2-config:/config \
+    -v /srv/dev-disk-by-label-OS:/downloads \
     p3terx/aria2-pro
